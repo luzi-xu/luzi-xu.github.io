@@ -29,7 +29,7 @@ export default async function EventPage({
       <Button
         asChild
         variant="ghost"
-        className="mb-8 rounded-none pl-0 hover:bg-transparent hover:underline"
+        className="mb-8 rounded-none pl-0"
       >
         <Link
           href="/events"
@@ -61,17 +61,13 @@ export default async function EventPage({
                 <Calendar className="mr-2 h-4 w-4" />
                 {event.date}
               </div>
-              <div className="flex items-center">
-                <MapPin className="mr-2 h-4 w-4" />
-                Main Conference Hall
-              </div>
             </div>
           </div>
 
           <div
-            className="prose prose-gray max-w-none border-t-2 border-primary pt-8 text-lg leading-relaxed [&>h3]:text-xl [&>h3]:font-bold [&>h3]:uppercase [&>h3]:tracking-wide [&>h3]:text-primary [&>h3]:mt-8 [&>h3]:mb-4 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:space-y-2"
+            className="prose prose-gray max-w-none border-t-2 border-primary pt-8 text-lg leading-relaxed [&>h3]:text-xl [&>h3]:font-bold [&>h3]:uppercase [&>h3]:tracking-wide [&>h3]:text-primary [&>h3]:mt-8 [&>h3]:mb-4 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:space-y-2 [&>img]:mx-auto [&>p]:text-justify [&>a]:text-primary [&>a]:underline [&>a]:underline-offset-2"
             dangerouslySetInnerHTML={{
-              __html: event.content || event.description,
+              __html: event.content || "",
             }}
           />
         </div>

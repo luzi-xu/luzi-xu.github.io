@@ -20,7 +20,7 @@ export default function ContactPage() {
           {/* Contact Info */}
           <div className="space-y-8">
             <div className="space-y-6 text-lg">
-              <p className="leading-relaxed text-muted-foreground">
+              <p className="leading-relaxed text-muted-foreground text-justify">
                 I am always open to discussing new research opportunities and collaborations. Please feel free to reach
                 out using the form or the contact details below.
               </p>
@@ -51,13 +51,13 @@ export default function ContactPage() {
                   <Phone className="mt-1 h-5 w-5 shrink-0" />
                   <div>
                     <h3 className="font-bold">Phone</h3>
-                    <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                    <p className="text-muted-foreground">{siteConfig.phone}</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="border-2 border-primary p-6">
+            {/* <div className="border-2 border-primary p-6">
               <h3 className="mb-4 font-bold uppercase">Office Hours</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex justify-between border-b border-border pb-2">
@@ -73,7 +73,7 @@ export default function ContactPage() {
                   <span>Please email</span>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
 
           {/* Contact Form */}
@@ -86,7 +86,7 @@ export default function ContactPage() {
                 <Input
                   id="name"
                   placeholder="Your name"
-                  className="rounded-none border-2 border-primary bg-transparent px-4 py-2 focus-visible:ring-0 focus-visible:ring-offset-0"
+                  className="rounded-none border-2 border-primary bg-transparent px-2 py-2 focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
               </div>
 
@@ -98,7 +98,7 @@ export default function ContactPage() {
                   id="email"
                   type="email"
                   placeholder="your@email.com"
-                  className="rounded-none border-2 border-primary bg-transparent px-4 py-2 focus-visible:ring-0 focus-visible:ring-offset-0"
+                  className="rounded-none border-2 border-primary bg-transparent px-2 py-2 focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
               </div>
 
@@ -109,7 +109,7 @@ export default function ContactPage() {
                 <Input
                   id="subject"
                   placeholder="Inquiry regarding..."
-                  className="rounded-none border-2 border-primary bg-transparent px-4 py-2 focus-visible:ring-0 focus-visible:ring-offset-0"
+                  className="rounded-none border-2 border-primary bg-transparent px-2 py-2 focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
               </div>
 
@@ -120,7 +120,7 @@ export default function ContactPage() {
                 <Textarea
                   id="message"
                   placeholder="How can I help you?"
-                  className="min-h-[150px] rounded-none border-2 border-primary bg-transparent px-4 py-2 focus-visible:ring-0 focus-visible:ring-offset-0"
+                  className="min-h-[100px] rounded-none border-2 border-primary bg-transparent px-2 py-2 focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
               </div>
 

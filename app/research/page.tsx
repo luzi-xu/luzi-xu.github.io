@@ -30,7 +30,7 @@ export default function ResearchPage() {
                 <div className="flex flex-wrap gap-2">
                   <ul className="list-disc list-inside space-y-1 text-muted-foreground text-base text-justify">
                     {topic.papers.map((paper, index) => (
-                      <li key={index}>{paper}</li>
+                      <li key={index} dangerouslySetInnerHTML={{ __html: paper }} className="[&>b]:text-primary" />
                     ))}
                   </ul>
                 </div>

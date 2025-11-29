@@ -1,10 +1,10 @@
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
-import { news } from "@/lib/data"
+import { blogs } from "@/lib/data"
 
 export default function BlogsPage() {
   // Reusing news items as blog posts for now, typically this would be separate data
-  const blogPosts = news.map((item) => ({
+  const blogPosts = blogs.map((item) => ({
     ...item,
     excerpt: item.description,
     readTime: "5 min read",

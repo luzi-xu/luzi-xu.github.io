@@ -24,7 +24,7 @@ export default function PublicationsPage() {
                 >
                   <div className="text-lg leading-relaxed text-foreground">
                     {/* We render the citation text directly, highlighting the year if needed */}
-                    {pub.citation}
+                    <span dangerouslySetInnerHTML={{ __html: pub.citation }} />
                     {pub.blogUrl && (
                       <Button
                         variant="ghost"

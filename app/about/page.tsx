@@ -13,10 +13,10 @@ export default function AboutPage() {
           <div className="flex flex-col items-center">
             <div className="relative aspect-3/4 w-full overflow-hidden border-2 border-primary bg-muted">
               <Image
-                src={profile.image || "/placeholder.svg"}
+                src={profile.aboutImg || "/placeholder.svg"}
                 alt={profile.name}
                 fill
-                className="object-cover grayscale transition-all hover:grayscale-0"
+                className="object-cover transition-all hover:grayscale-0"
               />
             </div>
             <div className="mt-4 text-center">
@@ -27,12 +27,7 @@ export default function AboutPage() {
           </div>
           <div className="space-y-6">
             <div className="prose prose-gray max-w-none text-md leading-relaxed text-justify">
-              <p>{profile.bio}</p>
-              <p>
-                My approach combines rigorous experimental design with advanced computational modeling. I believe that
-                understanding the brain requires bridging the gap between biological realism and functional abstraction.
-              </p>
-              <p>Outside of the lab, I enjoy hiking, classical piano, and science fiction literature.</p>
+              <p>{profile.about}</p>
             </div>
           </div>
         </div>
@@ -45,19 +40,37 @@ export default function AboutPage() {
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {collaborators.map((person, index) => (
-            <div key={index} className="flex flex-col border-2 border-primary p-6 transition-colors hover:bg-accent/10">
-              <div className="mb-6 flex justify-center">
-                <div className="relative h-32 w-32 overflow-hidden rounded-full border-2 border-primary bg-muted">
-                  <Image src={person.image || "/placeholder.svg"} alt={person.name} fill className="object-cover" />
+            person.link ? (
+              <Link key={index} href={person.link}>
+                <div className="flex flex-col border-2 border-primary p-6 transition-colors hover:bg-accent/10">
+                  <div className="mb-6 flex justify-center">
+                    <div className="relative h-32 w-32 overflow-hidden rounded-full border-2 border-primary bg-muted">
+                      <Image src={person.image || "/placeholder.svg"} alt={person.name} fill className="object-cover" />
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-xl font-bold">{person.name}</h3>
+                    <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">{person.role}</p>
+                    <hr className="my-4 border-primary/20" />
+                    <p className="text-sm text-muted-foreground text-justify">{person.bio}</p>
+                  </div>
+                </div>
+              </Link>
+            ) : (
+              <div key={index} className="flex flex-col border-2 border-primary p-6 transition-colors hover:bg-accent/10">
+                <div className="mb-6 flex justify-center">
+                  <div className="relative h-32 w-32 overflow-hidden rounded-full border-2 border-primary bg-muted">
+                    <Image src={person.image || "/placeholder.svg"} alt={person.name} fill className="object-cover" />
+                  </div>
+                </div>
+                <div className="text-center">
+                  <h3 className="text-xl font-bold">{person.name}</h3>
+                  <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">{person.role}</p>
+                  <hr className="my-4 border-primary/20" />
+                  <p className="text-sm text-muted-foreground text-justify">{person.bio}</p>
                 </div>
               </div>
-              <div className="text-center">
-                <h3 className="text-xl font-bold">{person.name}</h3>
-                <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">{person.role}</p>
-                <hr className="my-4 border-primary/20" />
-                <p className="text-sm text-muted-foreground text-justify">{person.bio}</p>
-              </div>
-            </div>
+            )
           ))}
         </div>
       </section>

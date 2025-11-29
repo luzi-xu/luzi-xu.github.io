@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
-import { news } from "@/lib/data";
+import { blogs } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 
 export function generateStaticParams() {
-  return news.map((post) => ({
+  return blogs.map((post) => ({
     id: post.id.toString(),
   }));
 }
@@ -18,7 +18,7 @@ export default async function BlogPage({
 }) {
   const { id: paramId } = await params;
   const id = Number.parseInt(paramId);
-  const post = news.find((n) => n.id === id);
+  const post = blogs.find((post) => post.id === id);
 
   if (!post) {
     notFound();
@@ -29,7 +29,7 @@ export default async function BlogPage({
       <Button
         asChild
         variant="ghost"
-        className="mb-8 rounded-none pl-0 hover:bg-transparent hover:underline"
+        className="mb-8 rounded-none pl-0"
       >
         <Link href="/blogs" className="flex items-center text-muted-foreground">
           <ArrowLeft className="mr-2 h-4 w-4" />
@@ -58,14 +58,11 @@ export default async function BlogPage({
                 <Calendar className="mr-2 h-4 w-4" />
                 {post.date}
               </div>
-              <div className="flex items-center">
-                <Clock className="mr-2 h-4 w-4" />5 min read
-              </div>
             </div>
           </div>
 
           <div
-            className="prose prose-gray max-w-none border-t-2 border-primary pt-8 text-lg leading-relaxed [&>h3]:text-xl [&>h3]:font-bold [&>h3]:uppercase [&>h3]:tracking-wide [&>h3]:text-primary [&>h3]:mt-8 [&>h3]:mb-4 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:space-y-2"
+            className="prose prose-gray max-w-none border-t-2 border-primary pt-8 text-lg leading-relaxed [&>h3]:text-xl [&>h3]:font-bold [&>h3]:uppercase [&>h3]:tracking-wide [&>h3]:text-primary [&>h3]:mt-8 [&>h3]:mb-4 [&>ul]:list-disc  [&>ul]:pl-5 [&>ul]:pb-6 [&>ul]:space-y-2 [&>p]:text-justify [&>p]:mb-6 [&>a]:text-primary [&>a]:underline [&>a]:underline-offset-2"
             dangerouslySetInnerHTML={{
               __html: post.content || post.description,
             }}
